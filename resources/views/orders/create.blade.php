@@ -84,7 +84,7 @@
             font-weight: bold;
         }
 
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddcfc5;
@@ -228,6 +228,31 @@
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
+                
+                <div class="field">
+                    <label for="payment_method">Metode pembayaran</label>
+
+                    <select id="payment_method" name="payment_method" required>
+                        <option value="">Pilih metode pembayaran</option>
+                        <option value="bank_transfer" {{ old('payment_method') === 'bank_transfer' ? 'selected' : '' }}>
+                            Transfer Bank / Virtual Account
+                        </option>
+                        <option value="qris" {{ old('payment_method') === 'qris' ? 'selected' : '' }}>
+                            QRIS
+                        </option>
+                        <option value="ewallet" {{ old('payment_method') === 'ewallet' ? 'selected' : '' }}>
+                            E-wallet
+                        </option>
+                        <option value="cod" {{ old('payment_method') === 'cod' ? 'selected' : '' }}>
+                            COD (Bayar saat pesanan diterima)
+                        </option>
+                    </select>
+
+                    @error('payment_method')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
+                </div>
+
 
                 <div class="field">
                     <label for="notes">Catatan tambahan (opsional)</label>

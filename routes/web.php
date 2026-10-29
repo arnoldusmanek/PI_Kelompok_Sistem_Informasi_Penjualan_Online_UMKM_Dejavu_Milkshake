@@ -22,3 +22,7 @@ Route::post('/pesan/{product}', [OrderController::class, 'store'])
 
 Route::get('/pesanan/{order}', [OrderController::class, 'show'])
     ->name('orders.show');
+    
+Route::post('/midtrans/notification', [OrderController::class, 'notification'])
+    ->name('midtrans.notification');
+

@@ -18,12 +18,19 @@ class Order extends Model
         'total_amount',
         'status',
         'notes',
+        'payment_method',
+        'payment_status',
+        'midtrans_transaction_id',
+        'snap_token',
+        'snap_redirect_url',
+        'paid_at',
     ];
 
     protected function casts(): array
     {
         return [
             'total_amount' => 'decimal:2',
+            'paid_at' => 'datetime',
         ];
     }
 
